@@ -91,7 +91,7 @@ Critical pattern: Training and serving must use identical feature transformation
 
 ### CI/CD Pipeline
 - **Trigger**: Push to main branch
-- **Actions**: Build Docker image → Push to Docker Hub (`anasriad8/telco-fastapi:latest`)
+- **Actions**: Build Docker image → Push to Docker Hub 
 - **Requirements**: `DOCKERHUB_USERNAME` and `DOCKERHUB_TOKEN` secrets
 - **Deployment**: Manual ECS service update (AWS Fargate + ALB)
 
