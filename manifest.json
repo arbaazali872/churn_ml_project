@@ -1,0 +1,22 @@
+{
+  "manifest_version": "0.2",
+  "name": "churn-predictor-mcp",
+  "version": "1.1.0",
+  "description": "Natural language interface to predict customer churn using an ML model.",
+  "author": {
+    "name": "Ali"
+  },
+  "server": {
+    "type": "python",
+    "entry_point": "churn_mcp_server.py",
+    "mcp_config": {
+      "command": "python",
+      "args": ["${__dirname}/churn_mcp_server.py"],
+      "env": {
+        "CHURN_API_URL": "http://localhost:8000"
+      }
+    }
+  },
+  "keywords": ["churn", "ml", "prediction", "fastapi", "xgboost", "mcp"],
+  "license": "MIT"
+}

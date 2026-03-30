@@ -1,5 +1,5 @@
 # 1. Use the official lightweight Python base image
-FROM python:3.11-sli
+FROM python:3.11-slim
 
 # 2. Set working directory inside the container
 WORKDIR /app
@@ -8,9 +8,10 @@ WORKDIR /app
 COPY requirements.txt .
 
 # 4. Install Python dependencies (add curl if you use MLflow local tracking URI)
-RUN pip install --upgrade pip \
-    && pip install -r requirements.txt \
+RUN apt-get update && apt-get install -y curl \
     && apt-get clean && rm -rf /var/lib/apt/lists/*
+
+RUN pip install --upgrade pip && pip install -r requirements.txt
 
 # 5. Copy the entire project into the image
 COPY . .
